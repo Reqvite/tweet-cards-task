@@ -1,4 +1,4 @@
-## Tweet Cards Task (Front-end part)
+## Tweet Cards Task 
 
 # Technical Specification:
 
