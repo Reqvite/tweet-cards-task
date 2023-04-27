@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const StyledHeader = styled.header`
   position: fixed;
+  z-index: 999;
   top: 0;
   display: flex;
   align-items: center;
