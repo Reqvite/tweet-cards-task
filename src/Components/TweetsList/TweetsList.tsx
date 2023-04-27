@@ -57,8 +57,6 @@ const TweetsList: FC = () => {
     }
   };
 
-  console.log("list", !handleFilterList().length);
-  console.log("boolean", !isLoading);
   return (
     <>
       <DropDown getValue={handleDropDownValue} />
