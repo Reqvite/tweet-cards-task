@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "../Header/Header.styled";
 
 export const Box = styled.div`
+  margin-top: 50%;
   width: 100%;
   max-width: 500px;
   background: ${(p) => p.theme.colors.boxBgColor};

@@ -5,7 +5,7 @@ export const getUsers = async (
   limit?: number
 ): Promise<AxiosResponse> => {
   return await axios.get(
-    "https://644a3650a8370fb32147b2ab.mockapi.io/api/tweets/get-users",
+    `${import.meta.env.VITE_BASE_URL}/api/tweets/get-users`,
     {
       params: {
         limit,

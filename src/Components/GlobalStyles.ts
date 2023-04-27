@@ -15,7 +15,7 @@ body {
   margin: 0;
    font-family: 'Montserrat', sans-serif;
   * {
-  transition: color 700ms cubic-bezier(0.075, 0.82, 0.165, 1), transform 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+ transition: transform 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 }
 code {
