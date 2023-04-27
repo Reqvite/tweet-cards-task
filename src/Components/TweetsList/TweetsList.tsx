@@ -39,10 +39,8 @@ const TweetsList: FC = () => {
   const handleFilterList = (): IUser[] => {
     switch (filter) {
       case "Follow":
-        console.log(users.filter((user) => !userFollowings.includes(user.id)));
         return users.filter((user) => !userFollowings.includes(user.id));
       case "Following":
-        console.log(users.filter((user) => userFollowings.includes(user.id)));
         return users.filter((user) => userFollowings.includes(user.id));
       default:
         return users;
@@ -55,9 +53,12 @@ const TweetsList: FC = () => {
       const { data } = await getUsers();
       setUsers([...data]);
       setIsEmpty(true);
+      setIsLoading(false);
     }
   };
 
+  console.log("list", !handleFilterList().length);
+  console.log("boolean", !isLoading);
   return (
     <>
       <DropDown getValue={handleDropDownValue} />
