@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 import {
   DropDownBox,
   List,
@@ -19,6 +19,23 @@ const DropDown: FC<IDropDownProps> = ({ getValue }) => {
     { value: "Follow", id: 2 },
     { value: "Following", id: 3 },
   ]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (
+        dropdownRef?.current &&
+        !dropdownRef?.current.contains(e.target as Node)
+      ) {
+        setIsActive(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   const handleDropDown = () => {
     setIsActive(!isActive);
@@ -30,7 +47,7 @@ const DropDown: FC<IDropDownProps> = ({ getValue }) => {
   };
 
   return (
-    <DropDownBox onClick={handleDropDown}>
+    <DropDownBox onClick={handleDropDown} ref={dropdownRef}>
       <Title>{activeValue}</Title>
       {isActive && (
         <List>
