@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import {
   DropDownBox,
   List,
@@ -13,16 +13,12 @@ interface IDropDownProps {
 
 const DropDown: FC<IDropDownProps> = ({ getValue }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [activeValue, setActiveValue] = useState("All");
+  const [activeValue, setActiveValue] = useState("Options");
   const [values] = useState([
     { value: "All", id: 1 },
     { value: "Follow", id: 2 },
     { value: "Following", id: 3 },
   ]);
-
-  useEffect(() => {
-    getValue("All");
-  }, [getValue]);
 
   const handleDropDown = () => {
     setIsActive(!isActive);

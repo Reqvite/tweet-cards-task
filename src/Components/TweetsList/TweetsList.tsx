@@ -20,7 +20,7 @@ const TweetsList: FC = () => {
 
   useEffect(() => {
     const handleData = async () => {
-      const { data } = await getUsers(page);
+      const { data } = await getUsers(page, 3);
       if (!data.length) {
         setIsEmpty(true);
       } else {
@@ -28,7 +28,6 @@ const TweetsList: FC = () => {
         setIsLoading(false);
       }
     };
-
     if (isLoading) handleData();
   }, [page, users, isLoading]);
 
@@ -50,8 +49,13 @@ const TweetsList: FC = () => {
     }
   };
 
-  const handleDropDownValue = (value: string) => {
+  const handleDropDownValue = async (value: string) => {
     setFilter(value);
+    if (value !== "Options") {
+      const { data } = await getUsers();
+      setUsers([...data]);
+      setIsEmpty(true);
+    }
   };
 
   return (
@@ -72,7 +76,7 @@ const TweetsList: FC = () => {
         })}
       </List>
       {isEmpty ? (
-        <ErrorMesage>Sorry, no more cards were found.</ErrorMesage>
+        !filter && <ErrorMesage>Sorry, no more cards were found.</ErrorMesage>
       ) : (
         <ButtonWrapper>
           <MainButton
@@ -81,6 +85,9 @@ const TweetsList: FC = () => {
             isLoading={isLoading}
           />
         </ButtonWrapper>
+      )}
+      {!handleFilterList().length && !isLoading && (
+        <ErrorMesage>{`Sorry, your ${filter.toLowerCase()} list is empty.`}</ErrorMesage>
       )}
     </>
   );

@@ -8,8 +8,8 @@ export const getUsers = async (
     "https://644a3650a8370fb32147b2ab.mockapi.io/api/tweets/get-users",
     {
       params: {
-        limit: (limit = 3),
-        page: page,
+        limit,
+        page,
       },
     }
   );
