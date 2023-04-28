@@ -8,7 +8,6 @@ import {
   Logo,
   Text,
   TweetDescBox,
-  UserBox,
   UserImg,
   UserImgPreview,
 } from "./TweetCard.styled";
