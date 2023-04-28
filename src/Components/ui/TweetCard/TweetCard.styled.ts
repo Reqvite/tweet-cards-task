@@ -4,6 +4,9 @@ import { ReactComponent as UserSvg } from "../../../assets/icons/Hansel.svg";
 
 export const Box = styled.li`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   max-width: 380px;
   height: 460px;
@@ -22,9 +25,6 @@ export const Img = styled.img`
   padding-top: 8px;
 `;
 
-export const UserBox = styled.div`
-  height: 80px;
-`;
 export const Line = styled.div`
   position: absolute;
   top: 214px;

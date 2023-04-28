@@ -13,7 +13,7 @@ interface IDropDownProps {
 
 const DropDown: FC<IDropDownProps> = ({ getValue }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [activeValue, setActiveValue] = useState("Options");
+  const [activeValue, setActiveValue] = useState<string>("Options");
   const [values] = useState([
     { value: "All", id: 1 },
     { value: "Follow", id: 2 },
@@ -37,7 +37,7 @@ const DropDown: FC<IDropDownProps> = ({ getValue }) => {
     };
   }, []);
 
-  const handleDropDown = () => {
+  const handleDropDown = (): void => {
     setIsActive(!isActive);
   };
 

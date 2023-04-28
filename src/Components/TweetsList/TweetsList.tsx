@@ -16,7 +16,7 @@ const TweetsList: FC = () => {
     "userFollowings",
     []
   );
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState<string>("");
 
   useEffect(() => {
     const handleData = async () => {
@@ -31,7 +31,7 @@ const TweetsList: FC = () => {
     if (isLoading) handleData();
   }, [page, users, isLoading]);
 
-  const handleLoadMoreButton = () => {
+  const handleLoadMoreButton = (): void => {
     setIsLoading(true);
     setPage((prevPage) => prevPage + 1);
   };

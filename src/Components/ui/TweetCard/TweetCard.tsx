@@ -53,13 +53,11 @@ const TweetCard: FC<ITweetCardProps> = ({
     <Box>
       <Logo />
       <Img src={CardImage} alt="Tweet image" />
-      <UserBox>
-        <Line>
-          <Circle>
-            {avatar ? <UserImg src={avatar} alt={user} /> : <UserImgPreview />}
-          </Circle>
-        </Line>
-      </UserBox>
+      <Line>
+        <Circle>
+          {avatar ? <UserImg src={avatar} alt={user} /> : <UserImgPreview />}
+        </Circle>
+      </Line>
       <TweetDescBox>
         <Text>{tweets} Tweets</Text>
         <Text>{numberOfFollowers.toLocaleString()} Followers</Text>
