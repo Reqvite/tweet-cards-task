@@ -4,7 +4,7 @@ import { getUsers } from "../../service/api";
 import { IUser } from "../../types/userType";
 import MainButton from "../ui/MainButton/MainButton";
 import { ButtonWrapper, ErrorMesage, List } from "./TweetsList.styled";
-import { useLocalStorage } from "../../assets/hooks";
+import { useLocalStorage } from "../../hooks";
 import DropDown from "../ui/DropDown/DropDown";
 
 const TweetsList: FC = () => {
